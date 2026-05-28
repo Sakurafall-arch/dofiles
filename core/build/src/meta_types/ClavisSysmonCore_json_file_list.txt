@@ -1,1 +1,0 @@
-/home/arch/.config/quickshell/core/build/src/ClavisSysmonCore_autogen/include/../EWIEGA46WW/moc_sysmon_backend.cpp.json

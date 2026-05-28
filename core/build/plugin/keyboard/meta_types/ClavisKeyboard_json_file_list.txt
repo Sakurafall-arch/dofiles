@@ -1,1 +1,0 @@
-/home/arch/.config/quickshell/core/build/plugin/keyboard/ClavisKeyboard_autogen/include/../UVLADIE3JM/moc_keyboard_lock_plugin.cpp.json

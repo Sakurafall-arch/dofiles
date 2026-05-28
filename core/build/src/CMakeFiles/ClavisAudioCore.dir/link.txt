@@ -1,2 +1,0 @@
-/usr/bin/ar qc libClavisAudioCore.a CMakeFiles/ClavisAudioCore.dir/ClavisAudioCore_autogen/mocs_compilation.cpp.o CMakeFiles/ClavisAudioCore.dir/audio_collector.cpp.o
-/usr/bin/ranlib libClavisAudioCore.a

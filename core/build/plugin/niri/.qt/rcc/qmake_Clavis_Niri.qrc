@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Clavis/Niri">
-    <file alias="qmldir">/home/arch/.config/quickshell/core/build/Clavis/Niri/qmldir</file>
-  </qresource>
-</RCC>
-

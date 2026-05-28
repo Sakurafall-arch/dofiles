@@ -1,7 +1,0 @@
-module Clavis.Sysmon
-linktarget ClavisSysmonplugin
-optional plugin ClavisSysmonplugin
-classname Clavis_SysmonPlugin
-typeinfo ClavisSysmon.qmltypes
-prefer :/qt/qml/Clavis/Sysmon/
-

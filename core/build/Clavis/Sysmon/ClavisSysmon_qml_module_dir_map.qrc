@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/">
-    <file alias="/qt/qml/Clavis/Sysmon">/home/arch/.config/quickshell/core/build/Clavis/Sysmon</file>
-
-  </qresource>
-</RCC>

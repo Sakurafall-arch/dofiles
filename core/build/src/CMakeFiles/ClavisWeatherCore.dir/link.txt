@@ -1,2 +1,0 @@
-/usr/bin/ar qc libClavisWeatherCore.a CMakeFiles/ClavisWeatherCore.dir/ClavisWeatherCore_autogen/mocs_compilation.cpp.o CMakeFiles/ClavisWeatherCore.dir/weather_types.cpp.o CMakeFiles/ClavisWeatherCore.dir/weather_calculator.cpp.o CMakeFiles/ClavisWeatherCore.dir/weather_cache.cpp.o CMakeFiles/ClavisWeatherCore.dir/openmeteo_client.cpp.o CMakeFiles/ClavisWeatherCore.dir/weather_backend.cpp.o
-/usr/bin/ranlib libClavisWeatherCore.a

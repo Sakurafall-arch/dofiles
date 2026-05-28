@@ -1,1 +1,0 @@
-/home/arch/.config/quickshell/core/build/plugin/niri/ClavisNiri_autogen/include/../UVLADIE3JM/moc_niri_plugin.cpp.json

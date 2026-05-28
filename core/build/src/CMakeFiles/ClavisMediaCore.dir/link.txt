@@ -1,2 +1,0 @@
-/usr/bin/ar qc libClavisMediaCore.a CMakeFiles/ClavisMediaCore.dir/ClavisMediaCore_autogen/mocs_compilation.cpp.o CMakeFiles/ClavisMediaCore.dir/media_palette_backend.cpp.o
-/usr/bin/ranlib libClavisMediaCore.a

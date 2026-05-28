@@ -1,6 +1,0 @@
-Clavis.Sysmon(ClavisSysmon)
-Clavis.Weather(ClavisWeather)
-Clavis.Niri(ClavisNiri)
-Clavis.Audio(ClavisAudio)
-Clavis.Media(ClavisMedia)
-Clavis.Keyboard(ClavisKeyboard)

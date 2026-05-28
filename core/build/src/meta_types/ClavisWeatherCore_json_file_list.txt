@@ -1,2 +1,0 @@
-/home/arch/.config/quickshell/core/build/src/ClavisWeatherCore_autogen/include/../EWIEGA46WW/moc_openmeteo_client.cpp.json
-/home/arch/.config/quickshell/core/build/src/ClavisWeatherCore_autogen/include/../EWIEGA46WW/moc_weather_backend.cpp.json

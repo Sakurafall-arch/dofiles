@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/">
-    <file alias="/qt/qml/Clavis/Media">/home/arch/.config/quickshell/core/build/Clavis/Media</file>
-
-  </qresource>
-</RCC>

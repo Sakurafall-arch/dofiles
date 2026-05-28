@@ -1,2 +1,0 @@
-/usr/bin/ar qc libClavisNiriCore.a CMakeFiles/ClavisNiriCore.dir/ClavisNiriCore_autogen/mocs_compilation.cpp.o CMakeFiles/ClavisNiriCore.dir/niri_icon_lookup.cpp.o CMakeFiles/ClavisNiriCore.dir/niri_ipc_client.cpp.o CMakeFiles/ClavisNiriCore.dir/niri_workspace_model.cpp.o CMakeFiles/ClavisNiriCore.dir/niri_window_model.cpp.o CMakeFiles/ClavisNiriCore.dir/niri_output_model.cpp.o
-/usr/bin/ranlib libClavisNiriCore.a

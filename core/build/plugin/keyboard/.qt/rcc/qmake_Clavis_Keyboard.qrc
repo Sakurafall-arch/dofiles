@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Clavis/Keyboard">
-    <file alias="qmldir">/home/arch/.config/quickshell/core/build/Clavis/Keyboard/qmldir</file>
-  </qresource>
-</RCC>
-

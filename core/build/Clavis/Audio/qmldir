@@ -1,7 +1,0 @@
-module Clavis.Audio
-linktarget ClavisAudioplugin
-optional plugin ClavisAudioplugin
-classname Clavis_AudioPlugin
-typeinfo ClavisAudio.qmltypes
-prefer :/qt/qml/Clavis/Audio/
-

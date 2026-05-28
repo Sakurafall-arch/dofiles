@@ -1,2 +1,0 @@
-/home/arch/.config/quickshell/core/build/plugin/sysmon/ClavisSysmon_autogen/include/../UVLADIE3JM/moc_process_model.cpp.json
-/home/arch/.config/quickshell/core/build/plugin/sysmon/ClavisSysmon_autogen/include/../UVLADIE3JM/moc_sysmon_plugin.cpp.json
