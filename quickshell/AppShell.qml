@@ -54,4 +54,21 @@ Item {
             return "LAUNCHER_TOGGLED";
         }
     }
+
+    // ── IPC 快捷键（在 Niri config 里绑定按键调用） ──
+    // 示例 Niri 配置：
+    //   Mod+D => quickshell-ipc launcher:toggle
+    //   Mod+Shift+D => quickshell-ipc theme:toggleDarkMode
+
+    IpcHandler {
+        target: "theme"
+
+        function toggleDarkMode() {
+            var isDark = Appearance.m3colors.darkmode
+            Quickshell.execDetached(["bash", "-c",
+                `~/.config/quickshell/scripts/theme/generate_quickshell_colors.sh --mode ${isDark ? "light" : "dark"}`
+            ])
+            return isDark ? "LIGHT" : "DARK"
+        }
+    }
 }
