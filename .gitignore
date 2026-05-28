@@ -1,5 +1,16 @@
-core/build/
-core/plugin/*/build/
-*.o
-*.so
-moc_*
+# Build artifacts
+quickshell/core/build/
+
+# OS-specific
+.hyprland_profile
+.initial_startup_done
+
+# Cache
+*~
+*.bak
+*.swp
+
+# Wallpaper cache
+hypr/wallpaper_effects/.wallpaper_current
+style.css.backup
+hyprland.conf.save
