@@ -1,0 +1,637 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "Niri"
+                },
+                {
+                    "name": "QML.Singleton",
+                    "value": "true"
+                }
+            ],
+            "className": "NiriPlugin",
+            "lineNumber": 15,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 10,
+                    "lineNumber": 49,
+                    "name": "connectToNiri",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "outputName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 11,
+                    "isConst": true,
+                    "lineNumber": 50,
+                    "name": "workspacesForOutput",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "workspaceId",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 12,
+                    "isConst": true,
+                    "lineNumber": 51,
+                    "name": "windowsForWorkspace",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "outputName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 13,
+                    "isConst": true,
+                    "lineNumber": 52,
+                    "name": "windowsForOutput",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "outputName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 14,
+                    "isConst": true,
+                    "lineNumber": 53,
+                    "name": "activeWorkspaceForOutput",
+                    "returnType": "QVariantMap"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 15,
+                    "isConst": true,
+                    "lineNumber": 54,
+                    "name": "workspaceById",
+                    "returnType": "QVariantMap"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 16,
+                    "isConst": true,
+                    "lineNumber": 55,
+                    "name": "windowById",
+                    "returnType": "QVariantMap"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "workspaceId",
+                            "type": "quint64"
+                        },
+                        {
+                            "name": "groupApps",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 17,
+                    "isConst": true,
+                    "lineNumber": 56,
+                    "name": "workspaceIcons",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "workspaceId",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 18,
+                    "isCloned": true,
+                    "isConst": true,
+                    "lineNumber": 56,
+                    "name": "workspaceIcons",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "query",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 19,
+                    "isConst": true,
+                    "lineNumber": 57,
+                    "name": "searchWindows",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 20,
+                    "lineNumber": 59,
+                    "name": "focusWorkspaceByIndex",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 21,
+                    "lineNumber": 60,
+                    "name": "focusWorkspaceById",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 22,
+                    "lineNumber": 61,
+                    "name": "focusWorkspaceByName",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 23,
+                    "lineNumber": 62,
+                    "name": "focusWindow",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint64"
+                        }
+                    ],
+                    "index": 24,
+                    "lineNumber": 63,
+                    "name": "closeWindow",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 25,
+                    "lineNumber": 64,
+                    "name": "closeFocusedWindow",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 26,
+                    "lineNumber": 65,
+                    "name": "toggleOverview",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 27,
+                    "lineNumber": 66,
+                    "name": "focusColumnLeft",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 28,
+                    "lineNumber": 67,
+                    "name": "focusColumnRight",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 29,
+                    "lineNumber": 68,
+                    "name": "focusWorkspaceUp",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 30,
+                    "lineNumber": 69,
+                    "name": "focusWorkspaceDown",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "workspaceIndex",
+                            "type": "int"
+                        },
+                        {
+                            "name": "targetIndex",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 31,
+                    "lineNumber": 70,
+                    "name": "moveWorkspaceToIndex",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 32,
+                    "lineNumber": 71,
+                    "name": "setWorkspaceName",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 33,
+                    "lineNumber": 72,
+                    "name": "unsetWorkspaceName",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 34,
+                    "lineNumber": 73,
+                    "name": "powerOffMonitors",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 35,
+                    "lineNumber": 74,
+                    "name": "powerOnMonitors",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 36,
+                    "lineNumber": 75,
+                    "name": "cycleKeyboardLayout",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "delayMs",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 37,
+                    "lineNumber": 76,
+                    "name": "doScreenTransition",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 38,
+                    "isCloned": true,
+                    "lineNumber": 76,
+                    "name": "doScreenTransition",
+                    "returnType": "bool"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 20,
+                    "name": "connected",
+                    "notify": "connectedChanged",
+                    "override": false,
+                    "read": "connected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 21,
+                    "name": "socketPath",
+                    "notify": "connectedChanged",
+                    "override": false,
+                    "read": "socketPath",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 22,
+                    "name": "lastError",
+                    "notify": "errorChanged",
+                    "override": false,
+                    "read": "lastError",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 23,
+                    "name": "workspaces",
+                    "override": false,
+                    "read": "workspaces",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "NiriWorkspaceModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 24,
+                    "name": "windows",
+                    "override": false,
+                    "read": "windows",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "NiriWindowModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 25,
+                    "name": "outputs",
+                    "override": false,
+                    "read": "outputs",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "NiriOutputModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "lineNumber": 26,
+                    "name": "focusedWindow",
+                    "notify": "focusedWindowChanged",
+                    "override": false,
+                    "read": "focusedWindow",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
+                    "lineNumber": 27,
+                    "name": "focusedWorkspace",
+                    "notify": "focusedWorkspaceChanged",
+                    "override": false,
+                    "read": "focusedWorkspace",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantMap",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 8,
+                    "lineNumber": 28,
+                    "name": "currentOutput",
+                    "notify": "focusedWorkspaceChanged",
+                    "override": false,
+                    "read": "currentOutput",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 9,
+                    "lineNumber": 29,
+                    "name": "inOverview",
+                    "notify": "overviewChanged",
+                    "override": false,
+                    "read": "inOverview",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 10,
+                    "lineNumber": 30,
+                    "name": "keyboardLayoutNames",
+                    "notify": "keyboardLayoutChanged",
+                    "override": false,
+                    "read": "keyboardLayoutNames",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 11,
+                    "lineNumber": 31,
+                    "name": "currentKeyboardLayoutName",
+                    "notify": "keyboardLayoutChanged",
+                    "override": false,
+                    "read": "currentKeyboardLayoutName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "NiriPlugin",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 79,
+                    "name": "connectedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 80,
+                    "name": "errorChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 81,
+                    "name": "workspacesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 82,
+                    "name": "windowsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 83,
+                    "name": "outputsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "lineNumber": 84,
+                    "name": "focusedWindowChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 85,
+                    "name": "focusedWorkspaceChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "lineNumber": 86,
+                    "name": "overviewChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "lineNumber": 87,
+                    "name": "keyboardLayoutChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "event",
+                            "type": "QJsonObject"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 90,
+                    "name": "handleEvent",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "niri_plugin.h",
+    "outputRevision": 69
+}

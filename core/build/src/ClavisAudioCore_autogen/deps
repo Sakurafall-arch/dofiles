@@ -1,0 +1,5 @@
+ClavisAudioCore_autogen/timestamp: \
+	/home/arch/.config/quickshell/core/src/CMakeLists.txt \
+	/home/arch/.config/quickshell/core/src/audio_collector.cpp \
+	/home/arch/.config/quickshell/core/src/audio_collector.h \
+	/usr/bin/cmake

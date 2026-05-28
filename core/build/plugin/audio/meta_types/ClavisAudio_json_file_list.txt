@@ -1,0 +1,1 @@
+/home/arch/.config/quickshell/core/build/plugin/audio/ClavisAudio_autogen/include/../UVLADIE3JM/moc_cava_provider.cpp.json

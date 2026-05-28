@@ -28,7 +28,27 @@ Singleton {
         root.darkMode = value;
         root.save();
         Quickshell.execDetached(["gsettings", "set", "org.gnome.desktop.interface", "color-scheme", value ? "prefer-dark" : "default"]);
+        // 同步更新 Quickshell 外观
+        var mode = value ? "dark" : "light";
+        Appearance.matugenMode = mode;
+        var wallpaper = Appearance.currentWallpaperPreview;
+        if (wallpaper.toString().startsWith("file://"))
+            wallpaper = wallpaper.toString().substring(7);
+        if (wallpaper.length > 0) {
+            themeProcess.command = [
+                "bash", Paths.scriptPath("theme", "generate_quickshell_colors.sh"),
+                "--image", wallpaper,
+                "--scheme", Appearance.matugenScheme,
+                "--mode", mode
+            ];
+            themeProcess.running = true;
+        }
         themeDebounce.start();
+    }
+
+    Process {
+        id: themeProcess
+        onExited: Appearance.reloadColors()
     }
 
     function toggleDarkMode() {

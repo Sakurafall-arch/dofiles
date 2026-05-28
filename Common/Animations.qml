@@ -129,11 +129,109 @@ Singleton {
         }
 
         readonly property QtObject expressiveEffects: expressiveDefaultEffects
-        readonly property QtObject elementMoveFast: expressiveFastSpatial
+
+        // ── Extra animation aliases for end4 widget compatibility ──
+
+        readonly property QtObject elementMoveFast: QtObject {
+            readonly property int duration: root.durations.expressiveFastSpatial
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.expressiveFastSpatial
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.expressiveFastSpatial
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.expressiveFastSpatial
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.expressiveFastSpatial
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.expressiveFastSpatial
+            }}
+        }
+
+        readonly property QtObject elementMoveEnter: QtObject {
+            readonly property int duration: root.durations.emphasizedAccel
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.emphasizedDecel
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.emphasizedAccel
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasizedDecel
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.emphasizedAccel
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasizedDecel
+            }}
+        }
+
+        readonly property QtObject elementMoveExit: QtObject {
+            readonly property int duration: root.durations.small
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.emphasizedAccel
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.small
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasizedAccel
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.small
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasizedAccel
+            }}
+        }
+
+        readonly property QtObject elementMove: QtObject {
+            readonly property int duration: root.durations.normal
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.emphasized
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasized
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasized
+            }}
+        }
+
+        readonly property QtObject elementResize: QtObject {
+            readonly property int duration: root.durations.normal
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.emphasized
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasized
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.emphasized
+            }}
+        }
+
         readonly property QtObject clickBounce: QtObject {
             readonly property int duration: root.durations.normal
             readonly property int type: Easing.BezierSpline
             readonly property var bezierCurve: root.curves.expressiveDefaultSpatial
+            readonly property Component numberAnimation: Component { NumberAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.expressiveDefaultSpatial
+            }}
+            readonly property Component colorAnimation: Component { ColorAnimation {
+                duration: root.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: root.curves.expressiveDefaultSpatial
+            }}
+        }
+
+        readonly property QtObject scroll: QtObject {
+            readonly property int duration: root.durations.small
+            readonly property int type: Easing.BezierSpline
+            readonly property var bezierCurve: root.curves.standardDecel
         }
     }
 }

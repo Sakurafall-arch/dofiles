@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/Clavis/Weather">/home/arch/.config/quickshell/core/build/Clavis/Weather</file>
+
+  </qresource>
+</RCC>

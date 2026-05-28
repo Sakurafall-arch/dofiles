@@ -9,7 +9,7 @@ Item {
     id: root
     signal wallpaperChanged()
 
-    property string wallpaperPath: Quickshell.env("HOME") + "/.config/wallpaper"
+    property string wallpaperPath: Quickshell.env("HOME") + "/Pictures/Wallpapers/api-random-download"
     property var allWallpapers: [] 
     property string pendingOverviewPath: ""
     
@@ -294,7 +294,7 @@ Item {
         generateColorsProcess.running = true;
 
         setWallpaperProcess.command = [
-            "awww", "img", currentPath,
+            "swww", "img", currentPath,
             "--transition-type", "any",
             "--transition-duration", "3",
             "--transition-fps", "60",

@@ -1,0 +1,2 @@
+/home/arch/.config/quickshell/core/build/plugin/weather/ClavisWeather_autogen/include/../UVLADIE3JM/moc_weather_list_model.cpp.json
+/home/arch/.config/quickshell/core/build/plugin/weather/ClavisWeather_autogen/include/../UVLADIE3JM/moc_weather_plugin.cpp.json

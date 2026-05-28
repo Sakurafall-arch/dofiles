@@ -249,11 +249,28 @@ Singleton {
     animationCurves: Animations.curves
     animation: Animations.animation
 
+    readonly property string fontMainFamily: Sizes.fontFamily
+    readonly property string fontNumbersFamily: Sizes.fontFamily
+    readonly property string fontTitleFamily: Sizes.fontFamily
+    readonly property string fontMonoFamily: Sizes.fontFamilyMono
+    readonly property string fontIconMaterial: "Material Symbols Rounded"
+    readonly property string fontIconNerd: Sizes.fontFamilyMono
+    readonly property int fontSizeSmaller: 12
+    readonly property int fontSizeSmall: 14
+    readonly property int fontSizeNormal: 15
+    readonly property int fontSizeLarger: 18
+    readonly property int fontSizeTitle: 24
+    readonly property int fontSizeHuge: 90
+
     rounding: QtObject {
+        property int verysmall: 8
         property int small: 12
         property int normal: 17
         property int large: 23
         property int veryLarge: 30
+        property int screenRounding: 17
+        property int windowRounding: 17
+        property int unsharpen: 9999
         property int full: 9999
     }
 

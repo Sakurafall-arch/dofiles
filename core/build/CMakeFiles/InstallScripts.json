@@ -1,0 +1,14 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/arch/.config/quickshell/core/build/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/src/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/sysmon/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/weather/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/niri/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/audio/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/media/cmake_install.cmake",
+		"/home/arch/.config/quickshell/core/build/plugin/keyboard/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

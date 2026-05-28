@@ -206,10 +206,10 @@ WidgetPanel {
             cellSpacing: 5
             padding: 5
             iconName: "settings"
-            tooltipText: "设置\n当前项目尚未提供独立设置窗口"
+            tooltipText: "打开设置"
             onTriggered: {
-                console.log("Settings window is not implemented yet.");
-                Quickshell.execDetached(["notify-send", "quickshell", "设置窗口尚未实现"]);
+                WidgetState.qsView = "settingspane";
+                WidgetState.qsOpen = true;
             }
         }
 

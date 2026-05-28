@@ -69,6 +69,7 @@ Rectangle {
     }
 
     Component.onCompleted: {
+        WeatherPlugin.setManualLocation(30.5928, 114.3055, "Wuhan");
         if (!WeatherPlugin.hasValidData)
             WeatherPlugin.refresh();
     }

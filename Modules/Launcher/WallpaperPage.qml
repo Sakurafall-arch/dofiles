@@ -11,7 +11,7 @@ Item {
     signal requestCloseLauncher()
 
     property string query: ""
-    property string wallpaperPath: Quickshell.env("HOME") + "/.config/wallpaper"
+    property string wallpaperPath: Quickshell.env("HOME") + "/Pictures/Wallpapers/api-random-download"
 
     property string currentSelectedPreview: ""
     property string pendingOverviewPath: ""

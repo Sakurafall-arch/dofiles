@@ -1,0 +1,13 @@
+--bare
+-I
+/home/arch/.config/quickshell/core/build
+-I
+/home/arch/.config/quickshell/core/build/Clavis/Media
+-I
+/home/arch/.config/quickshell/core/build/plugin/media
+-I
+/usr/lib/qt6/qml
+--resource
+/home/arch/.config/quickshell/core/build/plugin/media/.qt/rcc/qmake_Clavis_Media.qrc
+--json
+/home/arch/.config/quickshell/core/build/ClavisMedia_qmllint.json

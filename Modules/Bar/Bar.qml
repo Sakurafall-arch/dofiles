@@ -3,6 +3,7 @@ import Quickshell.Widgets
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import qs.Modules.Bar
 import qs.Modules.Bar.Workspaces
 import qs.Modules.Bar.ActiveWindow
 import qs.Modules.Bar.Tray
@@ -10,6 +11,8 @@ import qs.Modules.Bar.PowerButton
 import qs.Modules.Bar.SysMonitor
 import qs.Modules.Bar.QuickSettings
 import qs.Common
+import qs.Widgets.common
+import qs.Components
 
 Variants {
     model: Quickshell.screens
@@ -51,6 +54,29 @@ Variants {
                 height: implicitHeight
                 spacing: 10
 
+                // Arch Linux logo
+                RippleButton {
+                    implicitWidth: 32
+                    implicitHeight: 32
+                    buttonRadius: height / 2
+                    buttonRadiusPressed: height / 2
+                    colBackground: Appearance.colors.colLayer0
+                    colBackgroundHover: Appearance.colors.colLayer1Hover
+                    colRipple: Appearance.colors.colPrimary
+
+                    contentItem: Item {
+                        Text {
+                            anchors.centerIn: parent
+                            text: "\uf303"
+                            font.family: Sizes.fontFamilyMono
+                            font.pixelSize: 18
+                            color: Appearance.colors.colOnSurface
+                        }
+                    }
+
+                    onPressed: Quickshell.execDetached(["rofi", "-show", "run"])
+                }
+
                 Workspaces { screenName: barWindow.screen.name }
                 SidebarButton {}
                 ActiveWindow {}
@@ -67,7 +93,7 @@ Variants {
 
                 Tray {}
                 SysMonitor { Layout.alignment: Qt.AlignVCenter }
-                
+                BatteryIndicator { Layout.alignment: Qt.AlignVCenter }
 
                 QuickSettings { Layout.alignment: Qt.AlignVCenter }
                 

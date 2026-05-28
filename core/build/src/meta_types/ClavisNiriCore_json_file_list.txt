@@ -1,0 +1,4 @@
+/home/arch/.config/quickshell/core/build/src/ClavisNiriCore_autogen/include/../EWIEGA46WW/moc_niri_ipc_client.cpp.json
+/home/arch/.config/quickshell/core/build/src/ClavisNiriCore_autogen/include/../EWIEGA46WW/moc_niri_output_model.cpp.json
+/home/arch/.config/quickshell/core/build/src/ClavisNiriCore_autogen/include/../EWIEGA46WW/moc_niri_window_model.cpp.json
+/home/arch/.config/quickshell/core/build/src/ClavisNiriCore_autogen/include/../EWIEGA46WW/moc_niri_workspace_model.cpp.json
