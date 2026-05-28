@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/Clavis/Keyboard">/home/arch/.config/quickshell/core/build/Clavis/Keyboard</file>
+
+  </qresource>
+</RCC>

@@ -1,0 +1,12 @@
+-I
+/home/arch/.config/quickshell/core/build
+-I
+/home/arch/.config/quickshell/core/build/Clavis/Niri
+-I
+/home/arch/.config/quickshell/core/build/plugin/niri
+-I
+/usr/lib/qt6/qml
+--resource
+/home/arch/.config/quickshell/core/build/plugin/niri/.qt/rcc/qmake_Clavis_Niri.qrc
+--module
+Clavis.Niri

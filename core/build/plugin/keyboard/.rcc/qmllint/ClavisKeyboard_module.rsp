@@ -1,0 +1,12 @@
+-I
+/home/arch/.config/quickshell/core/build
+-I
+/home/arch/.config/quickshell/core/build/Clavis/Keyboard
+-I
+/home/arch/.config/quickshell/core/build/plugin/keyboard
+-I
+/usr/lib/qt6/qml
+--resource
+/home/arch/.config/quickshell/core/build/plugin/keyboard/.qt/rcc/qmake_Clavis_Keyboard.qrc
+--module
+Clavis.Keyboard

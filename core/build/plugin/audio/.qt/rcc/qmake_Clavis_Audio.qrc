@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Clavis/Audio">
+    <file alias="qmldir">/home/arch/.config/quickshell/core/build/Clavis/Audio/qmldir</file>
+  </qresource>
+</RCC>
+

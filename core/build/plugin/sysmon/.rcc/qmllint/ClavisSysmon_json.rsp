@@ -1,0 +1,13 @@
+--bare
+-I
+/home/arch/.config/quickshell/core/build
+-I
+/home/arch/.config/quickshell/core/build/Clavis/Sysmon
+-I
+/home/arch/.config/quickshell/core/build/plugin/sysmon
+-I
+/usr/lib/qt6/qml
+--resource
+/home/arch/.config/quickshell/core/build/plugin/sysmon/.qt/rcc/qmake_Clavis_Sysmon.qrc
+--json
+/home/arch/.config/quickshell/core/build/ClavisSysmon_qmllint.json
