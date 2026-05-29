@@ -17,7 +17,7 @@
 | `rofi` | 启动器 |
 | `wlogout` | 关机/重启菜单 |
 | `swaylock` | 备用锁屏 |
-| `Hyprpand` | Wayland 合成器（可选、单独使用）
+| `Hyprland` | Wayland 合成器（可选、单独使用）
 
 ### 后台服务
 
