@@ -3,7 +3,7 @@
 自用arch配置（
 集百家之长（用了JaKooLit/Arch-Hyprland shorin的dms niri StatIndet/dotfiles的quickshell）屎？配置的hyprland和niri配置能直接拿来用🤔比较完整
 结合自己的t2 MacBook和习惯有所调整（如缩放）
-本人现在为初三生，不懂事瞎搞的...quickshell仿照end4的给bar加了RippleButton效果，还加了电源和设置窗口
+本人现在为初三生（已经中考完），不懂事瞎搞的...quickshell仿照end4的给bar加了RippleButton效果，还加了电源和设置窗口
 
 ## 📦 需要的包 (Packages)
 
