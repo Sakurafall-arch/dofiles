@@ -4,6 +4,8 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 import qs.Common
+import qs.Services
+import qs.Widgets.common
 
 Item {
     id: root
@@ -11,10 +13,9 @@ Item {
     signal requestCloseLauncher()
 
     property string query: ""
-    property string wallpaperPath: Quickshell.env("HOME") + "/Pictures/Wallpapers/api-random-download"
+    property string wallpaperPath: PersonalizationConfig.wallpaperFolder
 
     property string currentSelectedPreview: ""
-    property string pendingOverviewPath: ""
     property bool isLoading: true
 
     RofiStyle {
@@ -141,7 +142,7 @@ Item {
     Text {
         anchors.centerIn: parent
         text: "Scanning wallpapers..."
-        color: Appearance.colors.colOnSurfaceVariant
+        color: Appearance.applyAlpha(Appearance.colors.colOnLayer0, 0.68)
         font.family: Sizes.fontFamilyMono
         font.pixelSize: rofiStyle.fontPixelSize
         visible: root.isLoading
@@ -150,19 +151,23 @@ Item {
     Text {
         anchors.centerIn: parent
         text: "No wallpapers found."
-        color: Appearance.colors.colOnSurfaceVariant
+        color: Appearance.applyAlpha(Appearance.colors.colOnLayer0, 0.68)
         font.family: Sizes.fontFamilyMono
         font.pixelSize: rofiStyle.fontPixelSize
         visible: !root.isLoading && filteredWallpaperModel.count === 0
     }
 
-    ListView {
+    StyledListView {
         id: wallpaperList
         width: parent.width
         height: rofiStyle.listHeight
         anchors.top: parent.top
         clip: true
         spacing: rofiStyle.listSpacing
+        animateAppearance: false
+        animateMovement: false
+        showVerticalScrollBar: false
+        smoothWheelEnabled: false
         visible: !root.isLoading && filteredWallpaperModel.count > 0
         model: filteredWallpaperModel
 
@@ -216,7 +221,7 @@ Item {
 
                 Text {
                     text: model.fileName
-                    color: delegateItem.ListView.isCurrentItem ? Appearance.colors.colOnSecondary : Appearance.colors.colOnSurface
+                    color: delegateItem.ListView.isCurrentItem ? Appearance.colors.colOnPrimary : Appearance.colors.colOnLayer0
                     font.family: Sizes.fontFamilyMono
                     font.pixelSize: rofiStyle.fontPixelSize
                     font.bold: false
@@ -230,7 +235,7 @@ Item {
     }
 
     function wallpaperProcessesRunning() {
-        return setWallpaperProcess.running || generateColorsProcess.running || overviewProcess.running;
+        return WallpaperService.busy;
     }
 
     function applyWallpaper() {
@@ -243,45 +248,6 @@ Item {
 
         let currentPath = filteredWallpaperModel.get(wallpaperList.currentIndex).path
 
-        Appearance.currentWallpaperPreview = "file://" + currentPath
-        root.pendingOverviewPath = currentPath
-
-        generateColorsProcess.command = [
-            "bash", Paths.scriptPath("theme", "generate_quickshell_colors.sh"),
-            "--image", currentPath,
-            "--scheme", Appearance.matugenScheme,
-            "--mode", Appearance.effectiveMatugenMode
-        ]
-        generateColorsProcess.running = true
-
-        setWallpaperProcess.command = [
-            "awww", "img", currentPath,
-            "--transition-type", "any",
-            "--transition-duration", "3",
-            "--transition-fps", "60",
-            "--transition-bezier", ".43,1.19,1,.4"
-        ]
-        setWallpaperProcess.running = true
-    }
-
-    Process {
-        id: setWallpaperProcess
-        onExited: {
-            if (root.pendingOverviewPath === "")
-                return
-
-            overviewProcess.command = ["bash", Paths.scriptPath("system", "overview.sh"), root.pendingOverviewPath]
-            overviewProcess.running = true
-        }
-    }
-
-    Process {
-        id: generateColorsProcess
-        onExited: Appearance.reloadColors()
-    }
-
-    Process {
-        id: overviewProcess
-        onExited: root.pendingOverviewPath = ""
+        WallpaperService.setWallpaper(currentPath)
     }
 }

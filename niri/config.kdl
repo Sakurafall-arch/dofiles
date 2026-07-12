@@ -6,6 +6,7 @@
 environment {
 	LC_MESSAGES "zh_CN.UTF-8"
 	XMODIFIERS "@im=fcitx"
+	QT_QPA_PLATFORMTHEME "qt6ct"
 }	
 
 include "binds.kdl"
@@ -363,3 +364,5 @@ window-rule {
 debug {
     wait-for-frame-completion-before-queueing
 }
+
+include "dms/cursor.kdl"

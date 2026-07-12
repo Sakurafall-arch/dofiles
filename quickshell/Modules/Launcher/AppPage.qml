@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell
 import qs.Common
+import qs.Widgets.common
 
 import "../../Common/functions/AppManager.js" as AppManager
 
@@ -98,13 +99,17 @@ Item {
         return resolved && resolved !== "" ? resolved : fallbackIconSource();
     }
 
-    ListView {
+    StyledListView {
         id: appsList
         width: parent.width
         height: rofiStyle.listHeight
         anchors.top: parent.top
         clip: true
         spacing: rofiStyle.listSpacing
+        animateAppearance: false
+        animateMovement: false
+        showVerticalScrollBar: false
+        smoothWheelEnabled: false
 
         model: filteredAppsModel
 
@@ -171,7 +176,7 @@ Item {
                 Text {
                     text: root.highlightText(modelData.name, root.query)
                     textFormat: Text.StyledText
-                    color: delegateItem.ListView.isCurrentItem ? Appearance.colors.colOnSecondary : Appearance.colors.colOnSurface
+                    color: delegateItem.ListView.isCurrentItem ? Appearance.colors.colOnPrimary : Appearance.colors.colOnLayer0
                     font.family: Sizes.fontFamilyMono
                     font.pixelSize: rofiStyle.fontPixelSize
                     font.bold: false

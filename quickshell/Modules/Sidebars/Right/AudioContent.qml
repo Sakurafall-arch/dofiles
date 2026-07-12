@@ -4,9 +4,7 @@ import Quickshell
 import Quickshell.Services.Pipewire
 import qs.Widgets.common
 import qs.Common
-import qs.Widgets.audio
 import qs.Services
-import QtQuick.Controls
 
 WidgetPanel {
     id: root
@@ -57,44 +55,27 @@ WidgetPanel {
                 }
             }
 
-            VolumeSlider { node: root.defaultSink; isHeadphone: root.isHeadphone(root.defaultSink) }
+            QuickMaterialSlider {
+                enabled: root.defaultSink !== null
+                materialSymbol: root.isHeadphone(root.defaultSink) ? "headphones" : "volume_up"
+                value: root.defaultSink ? (root.defaultSink.audio.muted ? 0 : root.defaultSink.audio.volume) : 0
+                percentText: root.defaultSink ? `${Math.round(value * 100)}%` : "0%"
+                tooltipContent: percentText
+                onMoved: Volume.setSinkVolume(value)
+            }
         }
     }
 
     Text { text: "应用程序"; font.pixelSize: 14; color: Appearance.colors.colOnLayer1; font.bold: true; Layout.topMargin: 12 }
 
-    ListView {
-        id: appList // 给 ListView 起个 id 方便滚轮调用
+    StyledListView {
+        id: appList
         Layout.fillWidth: true; Layout.fillHeight: true
         clip: true; spacing: 12;
         model: appTracker.linkGroups
-
-        // ============================================================
-        // 【核心改造 1】：彻底禁用原生 ListView 的左键拖拽滑动功能
-        // ============================================================
+        animateAppearance: false
+        animateMovement: false
         interactive: false 
-
-        // ============================================================
-        // 【核心改造 2】：纯滚轮接管引擎
-        // ============================================================
-        MouseArea {
-            anchors.fill: parent
-            
-            // 极其关键：告诉它“不要拦截任何鼠标按键”！
-            // 这样所有的点击和拖拽操作都会完美穿透给底下的音量滑块！
-            acceptedButtons: Qt.NoButton 
-            
-            // 手动接管滚轮事件，并限制上下边界防止滚出屏幕
-            onWheel: (wheel) => {
-                let newY = appList.contentY - wheel.angleDelta.y;
-                let maxY = Math.max(0, appList.contentHeight - appList.height);
-                
-                if (newY < 0) newY = 0;
-                if (newY > maxY) newY = maxY;
-                
-                appList.contentY = newY;
-            }
-        }
 
         delegate: Rectangle {
             required property PwLinkGroup modelData
@@ -163,7 +144,7 @@ WidgetPanel {
                                     anchors.fill: parent; radius: 16; color: Appearance.colors.colPrimary; rotation: 45 
                                     Rectangle { width: 16; height: 16; x: 16; y: 16; color: parent.color }
                                 }
-                                Text { anchors.centerIn: parent; text: Math.round(appNode.audio.volume * 100); color: Appearance.colors.colLayer1; font.pixelSize: 11; font.bold: true }
+                                Text { anchors.centerIn: parent; text: Math.round(appNode.audio.volume * 100); color: Appearance.colors.colOnPrimary; font.pixelSize: 11; font.bold: true }
                             }
                         }
 

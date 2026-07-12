@@ -1,12 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
-import Quickshell
 import qs.Common
-import qs.Widgets.common
 
 Item {
     id: root
+
+    property var screen: null
     
     // 维持 36 的高度
     implicitHeight: 36
@@ -34,23 +34,22 @@ Item {
         anchors.centerIn: parent
         spacing: 8 
         
-        Network {}
-        Brightness {}
-        Volume {}
-
-        // ── 深色模式开关 ──
-        // 需要和你的 matugen 配色脚本配合，当前先注释掉
-        // StyledSwitch {
-        //     Layout.alignment: Qt.AlignVCenter
-        //     checked: Appearance.m3colors.darkmode
-        //     onCheckedChanged: {
-        //         Quickshell.execDetached(["bash", "-c",
-        //             `~/.config/quickshell/scripts/theme/generate_quickshell_colors.sh --mode ${checked ? "dark" : "light"}`
-        //         ])
-        //     }
-        // }
-
-        SettingsButton {}
+        // 直接调用同目录下的组件，无需 import
+        Network {
+            screen: root.screen
+        }
+        Brightness {
+            screen: root.screen
+        }
+        Volume {
+            screen: root.screen
+        }
+        Microphone {
+            screen: root.screen
+        }
+        SettingsButton {
+            screen: root.screen
+        }
         PowerButton {}
     }
 }

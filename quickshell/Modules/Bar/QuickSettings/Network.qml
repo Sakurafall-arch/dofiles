@@ -3,11 +3,13 @@ import QtQuick.Layouts
 import Quickshell
 import qs.Services
 import qs.Common
+import qs.Widgets.common
 
 Rectangle {
     id: root
     
     property bool isHovered: mouseArea.containsMouse
+    property var screen: null
     
     implicitHeight: 28
     implicitWidth: isHovered ? (layout.width + 20) : 28
@@ -59,6 +61,8 @@ Rectangle {
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor 
         onClicked: {
+            if (root.screen && root.screen.name)
+                WidgetState.qsScreenName = root.screen.name;
             if (WidgetState.qsOpen && WidgetState.qsView === "network") {
                 WidgetState.qsOpen = false;
             } else {
@@ -66,5 +70,12 @@ Rectangle {
                 WidgetState.qsOpen = true;
             }
         }
+    }
+
+    PopupToolTip {
+        extraVisibleCondition: mouseArea.containsMouse
+        text: Network.connected
+              ? ((Network.activeConnection || "网络已连接") + "\n点击打开网络设置")
+              : "网络未连接\n点击打开网络设置"
     }
 }

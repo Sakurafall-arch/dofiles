@@ -1,52 +1,73 @@
-import qs.Common
-import qs.Widgets.common
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
+import qs.Common
 
 Item {
     id: root
+
     required property string text
     property bool shown: false
     property real horizontalPadding: 10
     property real verticalPadding: 5
-    property alias font: tooltipTextObject.font
-    implicitWidth: tooltipTextObject.implicitWidth + 2 * root.horizontalPadding
-    implicitHeight: tooltipTextObject.implicitHeight + 2 * root.verticalPadding
+    property alias font: tooltipText.font
+    readonly property QtObject revealAnimation: Appearance.animation.expressiveEffects
 
-    property bool isVisible: backgroundRectangle.implicitHeight > 0
+    implicitWidth: tooltipText.implicitWidth + root.horizontalPadding * 2
+    implicitHeight: tooltipText.implicitHeight + root.verticalPadding * 2
+
+    readonly property bool isVisible: backgroundRectangle.implicitHeight > 0
 
     Rectangle {
         id: backgroundRectangle
+
         anchors {
             bottom: root.bottom
             horizontalCenter: root.horizontalCenter
         }
-        color: Appearance?.colors.colTooltip ?? "#3C4043"
-        radius: Appearance?.rounding.verysmall ?? 7
-        opacity: shown ? 1 : 0
-        implicitWidth: shown ? (tooltipTextObject.implicitWidth + 2 * root.horizontalPadding) : 0
-        implicitHeight: shown ? (tooltipTextObject.implicitHeight + 2 * root.verticalPadding) : 0
+
+        color: Appearance.colors.colTooltip
+        radius: 8
+        opacity: root.shown ? 1 : 0
+        implicitWidth: root.shown ? tooltipText.implicitWidth + root.horizontalPadding * 2 : 0
+        implicitHeight: root.shown ? tooltipText.implicitHeight + root.verticalPadding * 2 : 0
         clip: true
 
         Behavior on implicitWidth {
-            animation: Appearance?.animation.elementMoveFast.numberAnimation.createObject(this)
-        }
-        Behavior on implicitHeight {
-            animation: Appearance?.animation.elementMoveFast.numberAnimation.createObject(this)
-        }
-        Behavior on opacity {
-            animation: Appearance?.animation.elementMoveFast.numberAnimation.createObject(this)
+            NumberAnimation {
+                alwaysRunToEnd: true
+                duration: root.revealAnimation.duration
+                easing.type: root.revealAnimation.type
+                easing.bezierCurve: root.revealAnimation.bezierCurve
+            }
         }
 
-        StyledText {
-            id: tooltipTextObject
+        Behavior on implicitHeight {
+            NumberAnimation {
+                alwaysRunToEnd: true
+                duration: root.revealAnimation.duration
+                easing.type: root.revealAnimation.type
+                easing.bezierCurve: root.revealAnimation.bezierCurve
+            }
+        }
+
+        Behavior on opacity {
+            NumberAnimation {
+                alwaysRunToEnd: true
+                duration: root.revealAnimation.duration
+                easing.type: root.revealAnimation.type
+                easing.bezierCurve: root.revealAnimation.bezierCurve
+            }
+        }
+
+        Text {
+            id: tooltipText
+
             anchors.centerIn: parent
             text: root.text
-            font.pixelSize: Appearance?.fontSizeSmaller ?? 14
-            font.hintingPreference: Font.PreferNoHinting
-            color: Appearance?.colors.colOnTooltip ?? "#FFFFFF"
+            color: Appearance.colors.colOnTooltip
             wrapMode: Text.Wrap
+            font.family: Sizes.fontFamily
+            font.pixelSize: 12
+            font.hintingPreference: Font.PreferNoHinting
         }
-    }   
+    }
 }

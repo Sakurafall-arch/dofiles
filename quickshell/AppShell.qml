@@ -1,20 +1,21 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import Clavis.Weather 1.0
 import qs.Modules.Bar
 import qs.Modules.DynamicIsland
 import qs.Modules.Launcher
 import qs.Modules.Lock
 import qs.Modules.Sidebars.Left
 import qs.Modules.Sidebars.Right
+import qs.Modules.Wallpaper
+import qs.Services
 
 Item {
     id: root
 
-    Component.onCompleted: {
-        WeatherPlugin.setManualLocation(30.5928, 114.3055, "Wuhan");
-    }
+    Component.onCompleted: WallpaperService.primaryInstance = true
+
+    WallpaperBackground {}
 
     Bar {}
 
@@ -55,20 +56,31 @@ Item {
         }
     }
 
-    // ── IPC 快捷键（在 Niri config 里绑定按键调用） ──
-    // 示例 Niri 配置：
-    //   Mod+D => quickshell-ipc launcher:toggle
-    //   Mod+Shift+D => quickshell-ipc theme:toggleDarkMode
-
     IpcHandler {
-        target: "theme"
+        target: "wallpaper"
 
-        function toggleDarkMode() {
-            var isDark = Appearance.m3colors.darkmode
-            Quickshell.execDetached(["bash", "-c",
-                `~/.config/quickshell/scripts/theme/generate_quickshell_colors.sh --mode ${isDark ? "light" : "dark"}`
-            ])
-            return isDark ? "LIGHT" : "DARK"
+        function set(path, screenName) {
+            return WallpaperService.setWallpaper(path || "", screenName || "", true) ? "OK" : "PENDING";
+        }
+
+        function clear(screenName) {
+            return WallpaperService.clearWallpaper(screenName || "", true) ? "OK" : "PENDING";
+        }
+
+        function previous() {
+            return WallpaperService.cyclePrevious(true) ? "OK" : "PENDING";
+        }
+
+        function next() {
+            return WallpaperService.cycleNext(true) ? "OK" : "PENDING";
+        }
+
+        function random() {
+            return WallpaperService.cycleRandom(true) ? "OK" : "PENDING";
+        }
+
+        function setFolder(path) {
+            return WallpaperService.setWallpaperFolder(path || "", true) ? "OK" : "PENDING";
         }
     }
 }

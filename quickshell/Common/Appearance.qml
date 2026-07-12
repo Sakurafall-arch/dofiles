@@ -11,7 +11,7 @@ Singleton {
     property string matugenScheme: "scheme-tonal-spot"
     property string matugenMode: "dark"
     readonly property string effectiveMatugenMode: matugenMode.toLowerCase() === "light" ? "light" : "dark"
-    property string currentWallpaperPreview: "file://" + Quickshell.env("HOME") + "/.cache/wallpaper_rofi/current"
+    property string currentWallpaperPreview: ""
     property real backgroundTransparency: 0
     property real contentTransparency: 0.9
     property QtObject m3colors
@@ -20,6 +20,7 @@ Singleton {
     property QtObject colors
     property QtObject rounding
     property QtObject spacing
+    property QtObject scrollBar
 
     function clamp01(value) {
         return Math.max(0, Math.min(1, value));
@@ -228,6 +229,11 @@ Singleton {
         property color colOnSurface: root.m3colors.m3onSurface
         property color colOnSurfaceVariant: root.m3colors.m3onSurfaceVariant
         property color colInversePrimary: root.m3colors.m3inversePrimary
+        property color colOnImage: Qt.rgba(1.0, 1.0, 1.0, 0.96)
+        property color colOnImageMuted: root.applyAlpha(colOnImage, 0.82)
+        property color colWeatherCardSurface: root.m3colors.m3surfaceContainerLowest
+        property color colOnWeatherCardSurface: root.m3colors.m3onSurface
+        property color colOnWeatherCardSurfaceVariant: root.m3colors.m3onSurfaceVariant
 
         property color colTooltip: root.m3colors.m3inverseSurface
         property color colOnTooltip: root.m3colors.m3inverseOnSurface
@@ -249,33 +255,27 @@ Singleton {
     animationCurves: Animations.curves
     animation: Animations.animation
 
-    readonly property string fontMainFamily: Sizes.fontFamily
-    readonly property string fontNumbersFamily: Sizes.fontFamily
-    readonly property string fontTitleFamily: Sizes.fontFamily
-    readonly property string fontMonoFamily: Sizes.fontFamilyMono
-    readonly property string fontIconMaterial: "Material Symbols Rounded"
-    readonly property string fontIconNerd: Sizes.fontFamilyMono
-    readonly property int fontSizeSmaller: 12
-    readonly property int fontSizeSmall: 14
-    readonly property int fontSizeNormal: 15
-    readonly property int fontSizeLarger: 18
-    readonly property int fontSizeTitle: 24
-    readonly property int fontSizeHuge: 90
-
     rounding: QtObject {
-        property int verysmall: 8
+        property int extraSmall: 4
         property int small: 12
         property int normal: 17
         property int large: 23
         property int veryLarge: 30
-        property int screenRounding: 17
-        property int windowRounding: 17
-        property int unsharpen: 9999
         property int full: 9999
     }
 
     spacing: QtObject {
         property int panelPadding: 20
+    }
+
+    scrollBar: QtObject {
+        property int width: 8
+        property int margin: 4
+        property int minLength: 24
+        property int radius: root.rounding.full
+        property real activeOpacity: 0.5
+        property real inactiveOpacity: 0
+        property color thumbColor: root.colors.colOnSurfaceVariant
     }
 
     FileView {

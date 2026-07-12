@@ -8,6 +8,7 @@ import qs.Widgets.common
 WidgetPanel {
     id: root
 
+    property var screen: null
     title: "快捷设置"
     icon: "settings"
     closeAction: () => WidgetState.qsOpen = false
@@ -85,7 +86,7 @@ WidgetPanel {
         case "audio":
             return Volume.sinkMuted ? "已静音" : Math.round(Volume.sinkVolume * 100) + "%";
         case "theme":
-            return UiPreferences.darkMode ? "深色" : "浅色";
+            return PersonalizationConfig.themeMode === "dark" ? "深色" : "浅色";
         case "dnd":
             return UiPreferences.dndEnabled ? "已开启" : "已关闭";
         default:
@@ -106,7 +107,7 @@ WidgetPanel {
         case "audio":
             return Volume.sinkMuted || Volume.sinkVolume <= 0 ? "volume_off" : "volume_up";
         case "theme":
-            return UiPreferences.darkMode ? "dark_mode" : "light_mode";
+            return PersonalizationConfig.themeMode === "dark" ? "dark_mode" : "light_mode";
         case "dnd":
             return UiPreferences.dndEnabled ? "notifications_paused" : "notifications";
         default:
@@ -121,7 +122,7 @@ WidgetPanel {
         case "caffeine": return Idle.inhibited;
         case "mic": return !Volume.sourceMuted;
         case "audio": return !Volume.sinkMuted && Volume.sinkVolume > 0;
-        case "theme": return UiPreferences.darkMode;
+        case "theme": return PersonalizationConfig.themeMode === "dark";
         case "dnd": return UiPreferences.dndEnabled;
         default: return false;
         }
@@ -152,7 +153,7 @@ WidgetPanel {
             Volume.toggleSinkMute();
             break;
         case "theme":
-            UiPreferences.toggleDarkMode();
+            ThemeService.setThemeMode(PersonalizationConfig.themeMode === "dark" ? "light" : "dark");
             break;
         case "dnd":
             UiPreferences.toggleDnd();
@@ -206,11 +207,8 @@ WidgetPanel {
             cellSpacing: 5
             padding: 5
             iconName: "settings"
-            tooltipText: "打开设置"
-            onTriggered: {
-                WidgetState.qsView = "settingspane";
-                WidgetState.qsOpen = true;
-            }
+            tooltipText: "设置"
+            onTriggered: Quickshell.execDetached(["qs", "-p", Quickshell.shellPath("controlcenter.qml")])
         }
 
         QuickToggleButton {
@@ -227,6 +225,11 @@ WidgetPanel {
         Layout.fillWidth: true
         Layout.fillHeight: true
         spacing: 14
+
+        QuickSliders {
+            screen: root.screen
+            Layout.fillWidth: true
+        }
 
         Rectangle {
             id: togglePanel

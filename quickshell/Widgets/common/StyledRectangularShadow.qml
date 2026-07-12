@@ -1,36 +1,15 @@
 import QtQuick
 import QtQuick.Effects
+import qs.Common
 
-/**
- * Drop shadow for a target item. Uses MultiEffect for a smooth shadow.
- * Falls back gracefully if RectangularShadow is not available.
- */
-Item {
-    id: root
+RectangularShadow {
     required property var target
-    property real radius: 10
-    property real blurAmount: 9
-    property real xOffset: 0
-    property real yOffset: 1
-    property color shadowColor: "#B3000000"
 
     anchors.fill: target
-    z: -1
-
-    MultiEffect {
-        id: shadowEffect
-        source: root.target
-        anchors.fill: parent
-        anchors.leftMargin: root.xOffset
-        anchors.topMargin: root.yOffset
-
-        shadowEnabled: true
-        shadowColor: root.shadowColor
-        shadowBlur: root.blurAmount / 2
-        shadowHorizontalOffset: 0
-        shadowVerticalOffset: 0
-
-        blurMax: 64
-        blur: 0
-    }
+    radius: target.radius
+    blur: 0.9 * 10
+    offset: Qt.vector2d(0.0, 1.0)
+    spread: 1
+    color: Appearance.colors.colShadow
+    cached: true
 }

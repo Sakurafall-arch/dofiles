@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import qs.Services
 import qs.Common
@@ -7,45 +6,23 @@ import qs.Widgets.common
 
 Item {
     id: root
-    property bool isHovered: mouseArea.containsMouse
+
+    property var screen: null
+    readonly property var monitor: Brightness.getMonitorForScreen(screen)
+    readonly property real brightnessValue: monitor ? monitor.brightness : Brightness.brightnessValue
 
     implicitHeight: 28
-    implicitWidth: isHovered ? layout.implicitWidth : 28
+    implicitWidth: 28
 
-    Behavior on implicitWidth { NumberAnimation { duration: 200; easing.type: Easing.OutCubic } }
+    ArcGauge {
+        anchors.fill: parent
 
-    RowLayout {
-        id: layout
-        anchors.centerIn: parent
-        spacing: 8
-
-        // 圆弧仪表盘
-        ArcGauge {
-            Layout.preferredWidth: 28
-            Layout.preferredHeight: 28
-
-            value: Brightness.brightnessValue
-            progressColor: Appearance.colors.colPrimary
-            trackColor: Appearance.colors.colLayer2Hover
-            handleColor: Appearance.colors.colOnSurface
-            iconColor: Appearance.colors.colOnSurface
-
-            // Material Symbols: brightness_medium
-            icon: "brightness_medium"
-        }
-
-        // 亮度数字（hover 时展开）
-        Text {
-            id: briText
-            text: Math.round(Brightness.brightnessValue * 100).toString()
-            font.family: "JetBrainsMono Nerd Font"
-            font.pixelSize: 12
-            font.bold: true
-            color: Appearance.colors.colOnSurface
-            visible: root.isHovered
-            opacity: root.isHovered ? 1.0 : 0.0
-            Behavior on opacity { NumberAnimation { duration: 200 } }
-        }
+        value: root.brightnessValue
+        progressColor: Appearance.colors.colPrimary
+        trackColor: Appearance.colors.colLayer2Hover
+        handleColor: Appearance.colors.colOnSurface
+        iconColor: Appearance.colors.colOnSurface
+        icon: "brightness_medium"
     }
 
     MouseArea {
@@ -56,10 +33,16 @@ Item {
 
         onWheel: (wheel) => {
             const step = 0.05
-            let newBri = Brightness.brightnessValue
+            let newBri = root.brightnessValue
             if (wheel.angleDelta.y > 0) newBri += step
             else newBri -= step
-            Brightness.setBrightness(newBri)
+            Brightness.setBrightnessForScreen(root.screen, newBri)
+            wheel.accepted = true
         }
+    }
+
+    PopupToolTip {
+        extraVisibleCondition: mouseArea.containsMouse
+        text: "亮度: " + Math.round(root.brightnessValue * 100) + "%\n滚轮调节"
     }
 }

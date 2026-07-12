@@ -6,6 +6,7 @@ import Quickshell.Io
 import Quickshell.Services.Mpris
 import qs.Common 
 import qs.Services 
+import qs.Widgets.common
 
 Item {
     id: root
@@ -128,12 +129,12 @@ Item {
             }
             Text {
                 visible: root.artUrl === ""; anchors.centerIn: parent
-                text: "\uf001"; font.family: "Symbols Nerd Font Mono"; font.pixelSize: 14; color: "#80ffffff"
+                text: "\uf001"; font.family: "Symbols Nerd Font Mono"; font.pixelSize: 14; color: Appearance.applyAlpha(Appearance.colors.colOnLayer0, 0.50)
             }
         }
 
         // --- 歌词列表 ---
-        ListView {
+        StyledListView {
             id: lyricsView
             anchors.left: albumCoverContainer.right
             anchors.leftMargin: 12
@@ -143,6 +144,10 @@ Item {
             width: root.currentTextWidth
             
             interactive: false
+            animateAppearance: false
+            animateMovement: false
+            showVerticalScrollBar: false
+            smoothWheelEnabled: false
             model: root.lyricsModel
             currentIndex: root.currentLineIndex
             
@@ -166,7 +171,7 @@ Item {
                     id: lyricText
                     anchors.centerIn: parent
                     text: modelData.text
-                    color: "white"
+                    color: Appearance.colors.colOnLayer0
                     font.family: Sizes.fontFamily
                     font.pixelSize: 15
                     font.weight: Font.Bold
